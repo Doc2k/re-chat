@@ -1,0 +1,189 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font: 13px Helvetica, Arial; }
+form { background: #000; }
+.iArt_bothClear{clear:both;}.iArt_clear_1{clear:both; height: 1px;}
+.messages {display:block; margin: 0; padding: 0;}
+.messages .iArtChatMessageItem{display:block; padding: 1px 17px 1px 7px; transition:all 350ms; color:#eee;margin-bottom: 1px;word-wrap: break-word;line-height: 14px;}
+.messages .iArtChatMessageItem:hover { background: rgba(24, 132, 157, 0.16); }
+.messages .iArtChatMessageItem.reChatInfo{background: rgba(30, 146, 173, 0.2); font-style:italic;padding: 7px 10px 4px 7px;margin-bottom: 0;}
+.messages .iArtChatMessageItem.reChatInfo:hover{background: rgba(30, 146, 173, 0.2); }
+
+#iArt_sender{display: block; margin: 10px auto 0 auto; background: #083C3F; color:#fff; padding: 2px 11px;border: 1px solid #083C3F;cursor: pointer;width: 100px;font-size: 12px;}
+#iArt_sender:hover{background: #083C3F; color:#fff; border:1px solid #fff;}
+#reChatLoginBlocker{padding: 8px 20px 20px 20px; width:400px; background:#000; margin:30px auto 0 auto; text-align:center; display:none; border-radius:2px;box-shadow: inset 0px 0px 10px 1px #005055; -moz-box-shadow: inset 0px 0px 10px 1px #005055; -o-box-shadow: inset 0px 0px 10px 1px #005055; -webkit-box-shadow: inset 0px 0px 10px 1px #005055; color:#FFF; text-align:center;}
+#iArt_chatwin{display:none;}
+
+#iArt_chatmessageContainer{float:left; width: 710px; padding: 0px;margin-left:5px; margin-top: 15px;overflow:hidden; height: 430px;  position:relative; border-radius:2px; background:rgba(0,0,0,0.5);border: 2px solid #083C3F;}
+.iArt_chatWindowContainer{position:absolute; top: 30px; left:0; bottom:0; right:0; overflow:auto; padding-right:25px; width: 735px; display: none;}
+#iArt_chatMessageContMainChat{display:block; top:0;}
+#iArt_privMessTabPanelContainer{position:absolute; transition:all:10ms;  height:30px; display:none; top:0; left:0; right:0; background: #000; overflow:hidden;}
+#iArt_privMessTabPanel{width:3000em;border-bottom: 2px solid #083C3F;height: 30px;}
+.iArt_ChatTab{position:relative; cursor: pointer;float:left; margin-left: -2px;border-width: 2px 1px 1px 2px; border-style:solid; border-color: #083C3F; border-radius:2px; line-height: 33px; height: 32px;bottom: 3px;background: #171616;padding: 0 23px 0 12px; color: #0C6A6F;}
+.iArt_ChatTab.active{border-color:#083C3F; color:#eee;height: 32px;line-height: 31px;border-width: 2px 2px 0px 2px;top: -2px;background: #000;cursor: default;}
+.iArt_chatTabClose{position:absolute; top: 2px; right: 2px; transition:all 350ms;  border: 1px solid #083C3F; cursor:pointer; color: #0B5C61;font-weight: bold; border-radius: 2px;font-size: 11px;text-align:center;line-height: 11px;padding: 1px 2px 0 2px;}
+.iArt_chatTabClose:hover{background:rgba(201, 4, 4, 0.8); color:#eee;}
+.iArt_ChatTab.alert{font-weight:bold; color:#419398; background: #05353a;background: -moz-linear-gradient(top, #000000 0%, #05353a 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#05353a));background: -webkit-linear-gradient(top, #000000 0%,#05353a 100%);background: -o-linear-gradient(top, #000000 0%,#05353a 100%);background: -ms-linear-gradient(top, #000000 0%,#05353a 100%);background: linear-gradient(to bottom, #000000 0%,#05353a 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#05353a',GradientType=0 );}
+.iArt_ChatTab .iArt_howManyMessages{display:none;}
+.iArt_ChatTab.alert .iArt_howManyMessages{display:inline; font-weight:normal;}
+
+#iArt_panelLeft, #iArt_panelRight{position:absolute; display:none; z-index: 5;width: 17px; text-align: center;cursor: pointer;height: 19px; top: 22px; border-radius:8px; background: #000000; color: #319399; line-height: 16px; font-size: 20px;transition: all 250ms;border: 2px solid #08393C;}
+#iArt_panelLeft{left: 0px;}
+#iArt_panelRight{right: 211px;}
+#iArt_panelLeft:hover, #iArt_panelRight:hover{color:#eee; background:#055358; border:2px solid #083C3F;}
+
+#reChatUsers{float:right; width: 205px; height: 430px; padding:0 5px;  margin-top: 15px;margin-right: 5px;position:relative; border-radius:2px; background:rgba(0,0,0,0.5);border: 2px solid #083C3F;}
+.iArt_chatLoginLabel{float:left; width: 120px;text-align: left;line-height: 20px;margin-left: 50px;margin-bottom: 6px;}
+.iArt_chatContent{float:left;line-height: 20px;}
+.iArt_chatContent input{width: 150px; border:1px solid #000; background:#eee;padding: 2px; border: 1px solid #083C3F;}
+#iArt_chatLoginHead{text-align:center; font-weight:bold; color: #075A5F;font-size: 19px;-webkit-font-smoothing: antialiased;margin-bottom: 10px;}
+#iArt_userlistHead, #iArt_smileylistHead{text-align:left; padding: 6px 3px 4px 3px;color:#eee; font-weight:bold; border-bottom:1px solid #083C3F;-webkit-font-smoothing: antialiased;font-size: 15px; position:relative;}
+#iArt_toggleChatSounds{position:absolute; cursor:pointer; width:19px; height:19px; transition:all 200ms; background: url(http://www.radio-emergency.de/img/re-sprite.png) -207px -208px no-repeat; top:3px; right:0px;}
+#iArt_toggleChatSounds.active{background: url(http://www.radio-emergency.de/img/re-sprite.png) -229px -208px no-repeat;}
+#iArt_toggleChatSounds .iArt_toggleChatSoundsHiglight{position:absolute; left:0; right:0; top:0; bottom:0; opacity:0; background: url(http://www.radio-emergency.de/img/re-sprite.png) -207px -178px no-repeat; transition:all 200ms;}
+#iArt_toggleChatSounds.active .iArt_toggleChatSoundsHiglight{background: url(http://www.radio-emergency.de/img/re-sprite.png) -229px -178px no-repeat;}
+#iArt_toggleChatSounds:hover .iArt_toggleChatSoundsHiglight{opacity:1;}
+#iArt_toggleChatSounds .iArt_toggleSoundBubble{position:absolute; width: 191px; font-size: 11px;padding-top: 11px; height: 32px; background: url(http://www.radio-emergency.de/img/re-sprite.png) -57px -424px no-repeat; text-align:center; right:32px; top: -7px; display:none; padding-right: 11px;}
+#iArt_userListContainer{overflow:hidden; height:100px; width:191px;}
+#iArt_userListContainerInner{width: 228px; height:100%; overflow-y:auto;  padding: 0 35px 0 0;}
+#iArt_ChatUsersList{padding-top:5px;}
+.iArt_UserListItem{text-align:left; color:#eee; font-weight:bold; padding: 1px 0 1px 6px; -webkit-font-smoothing: antialiased;font-size: 13px;}
+.iArt_userItemImgCont{display:block; float:left; margin-right:2px; width:18px; cursor:pointer;}
+.iArt_userItemImgCont.active, .iArt_userItemImgCont.inactive{cursor:default;}
+.iArt_userListNameCont{display:block; float:left;max-width: 165px;margin-top: 3px;}
+
+#iArt_userpanel, #iArt_userpanelAdmin{position:relative; /* display:none; */}
+.iArt_userpanelCont{position:absolute; top: 6px; right: -23px; height: 26px;  width: 43px;}
+
+.iArt_userpanelBox{position:absolute; display:none; z-index: 150;width: 160px; height:27px; top: 26px;right: 198px;background: url(http://www.radio-emergency.de/img/re-sprite.png) -87px -393px no-repeat;}
+.iArt_userpanelBox ul{display:block; padding-right: 13px;}
+.iArt_userpanelBox ul li{display:block; color:#0f8188; padding: 4px 0px 4px 15px;cursor: pointer;line-height: 19px;border-top: 1px solid #0f8188; transition:all 150ms;}
+.iArt_userpanelBox ul li:first-child{border:none;}
+.iArt_userpanelBox ul li:hover, .iArt_userpanelBox ul li:hover a{color:#fff;}
+
+#iArt_userpanelAdmin .iArt_userpanelBox{width:170px; height:97px; top: 16px;background: url(http://www.radio-emergency.de/img/bubbleBig.png) no-repeat; }
+#iArt_userpanelAdmin .iArt_userpanelCont{display:block;}
+#iArt_userpanelAdmin .iArt_userpanelBox ul{padding-right:20px; padding-left:10px; padding-top:6px}
+#iArt_userpanelAdmin .iArt_userpanelBox ul li{padding:2px 0 2px 8px; line-height:15px;}
+#iArt_userpanelAdmin .iArt_userpanelBox ul li a{color:#0f8188; text-decoration:none; transition:all 150ms;}
+#iArt_userpanelAdmin .iArt_userpanelBox ul li:hover a{color:#fff;}
+.iArt_userPanelArrows{font-size:17px; font-weight:bold}
+#messagePiep{display:none;}
+
+#iArt_MessageSendingContainer{margin-top: 5px; margin-right: 0px; position:relative; float:left;margin-left: 5px;width: 624px;height: 40px; border-right:1px solid #083C3F;}
+
+#iArt_wunschboxBTN{float:right; cursor: pointer;width: 205px; height: 40px; border-radius: 2px; background:#000; margin-top: 5px;margin-right: 5px;position:relative; border:  2px solid #083C3F; }
+#iArt_wunschboxBTN .iArt_wunschboxBtnImg{position:absolute; width:45px; height:25px; top: 5px; left: 21px; background: url(http://www.radio-emergency.de/img/re-sprite.png) -139px -312px no-repeat;}
+#iArt_wunschboxBTN .iArt_wunschboxBtnImg .iArt_chatFunctionsHighlight{position:absolute; top:0; right:0; left:0; bottom:0; opacity:0; transition:all 250ms; background: url(http://www.radio-emergency.de/img/re-sprite.png) -199px -312px no-repeat; }
+#iArt_wunschboxBTN  .iArt_chatFunctionsLabel{position:absolute; font-size: 15px; color: #0f8188;-webkit-font-smoothing: antialiased;font-weight: bold; top: 11px; left: 75px; transition: all 250ms;}
+#iArt_wunschboxBTN:hover .iArt_wunschboxBtnImg .iArt_chatFunctionsHighlight{opacity:1;}
+#iArt_wunschboxBTN:hover  .iArt_chatFunctionsLabel{color:#fff;}
+#iArt_wunschboxContainer{position:absolute; background:#000; border:  2px solid #083C3F; left: 5px; bottom: -45px; width: 710px; z-index: 150;height: 170px;display: none;}
+#iArt_wunschboxFormHead{padding: 5px 0; border-bottom: 1px solid #083C3F; text-align:center; position:relative; color:#fff; background: rgba(22, 105, 124, 0.2);font-size:14px; font-weight:bold; -webkit-font-smoothing:antialiased;}
+.iArt_wishArea{position:absolute;  font-size:12px; text-align:left; color:#fff; }
+.iArt_wishArea input{border:2px solid #083C3F; background:#000; margin-top: 3px;/* height: 15px; */color:#fff; width: 260px;padding: 3px;}
+#iArt_wischArtistCont{top: 45px; left:40px;}
+#iArt_wischTitleCont{top:107px; left:40px;}
+#iArt_wischGreetCont{right:40px; top:45px;}
+#iArt_whishGreet{border:2px solid #083C3F; background:#000; margin-top: 3px;color:#fff; resize: none;width: 305px; height: 44px;}
+#iArt_wishSubmit{display:block; border: 2px solid #083C3F; background:#000; color: #0f8188; cursor:pointer; position: absolute;border-radius: 3px;padding: 4px 9px;right: 40px;top: 121px;font-weight: bold;transition: all 250ms; }
+#iArt_wishSubmit:hover{color:#fff;}
+#iArt_wunschboxBlocker{position:absolute; top: 25px; bottom:0; right:0; left:0; background: rgba(0,0,0,0.9); text-align: center; color: #0f8188; font-size:15px; z-index: 5;font-weight:bold; padding-top: 35px; display:none;}
+#iArt_wunschFormCloser, #iArt_wunschAusgabeCloser, #iArt_wunschBearbeitenCloser{ width: 19px; position:absolute; top: 3px; right:5px; border:  1px solid #083C3F; border-radius:2px; color: #0f8188; cursor:pointer; transition:all 250ms;}
+#iArt_wunschFormCloser:hover, #iArt_wunschAusgabeCloser:hover, #iArt_wunschBearbeitenCloser:hover{color:#fff; background:#D32B2B;}
+#iArt_WunschlimitShow{position:absolute; font-size: 11px; /* font-weight:normal; */ top: 8px; left: 6px;  color: #11757B;}
+#iArt_WunschboxAusgabeContainer{position:absolute; z-index:30; border: 2px solid #083C3F; width: 710px; max-height: 130px;  top: 15px; border-radius: 3px;left: 5px; display:none; background:#000;}
+#iArt_wunschboxAusgabeHead, #iArt_wunschboxBearbeitenHead{padding: 6px 0; border-bottom: 1px solid #083C3F; text-align:center; position:relative; color:#fff; background: rgba(22, 105, 124, 0.2);font-size: 13px; font-weight:bold; -webkit-font-smoothing:antialiased;}
+#iArt_WunschboxLimit{position:absolute; top: 3px; left:5px; width: 17px; height:17px; background: url(http://www.radio-emergency.de/img/re-sprite.png) -154px -239px no-repeat; cursor:pointer;}
+#iArt_wunschlimitImAdmin{text-align: center; padding-top:4px; font-weight:bold; width: 16px;font-size: 11px;z-index:3; text-shadow:0 0 3px #000;}
+#iArt_wunschlimitSetter{display: block; position: absolute; width: 126px; height:35px; background: url(http://www.radio-emergency.de/img/re-sprite.png) -0px -306px no-repeat; top: -10px; left: 30px;display: none;}
+#iArt_wunschlimitRunter, #iArt_wunschlimitHoch{position:absolute;width: 21px; height: 22px; background-image:url(http://www.radio-emergency.de/img/re-sprite.png); background-repeat: no-repeat; top: 6px; cursor:pointer;}
+#iArt_wunschlimitRunter{background-position: -197px -27px;left: 25px;}
+#iArt_wunschlimitHoch{background-position: -227px -27px;left: 55px;}
+#iArt_wunschlimitRunter .highlight, #iArt_wunschlimitHoch .highlight{position:absolute; top:0; bottom:0; right:0; left:0; transition:all 250ms; opacity:0;}
+#iArt_wunschlimitRunter .highlight{background: url(http://www.radio-emergency.de/img/re-sprite.png) -197px -51px no-repeat;}
+#iArt_wunschlimitHoch .highlight{background: url(http://www.radio-emergency.de/img/re-sprite.png) -227px -51px no-repeat;}
+#iArt_wunschlimitRunter:hover .highlight, #iArt_wunschlimitHoch:hover .highlight{opacity:1;}
+#iArt_wunschlimitSubmit{display:block; position:absolute; right: 17px;border: none;top: 7px;width:20px; height:20px; background: url(http://www.radio-emergency.de/img/re-sprite.png) -148px -272px no-repeat; cursor:pointer;}
+#iArt_wunschlimitSubmit:hover{background: url(http://www.radio-emergency.de/img/re-sprite.png) -0px -280px no-repeat;}
+#iArt_WunschBearbeitung{position:absolute; height: 160px; width: 710px; z-index:40; border:2px solid #083C3F; top: -2px; left: -2px;background: #000; display:none;}
+#iArt_wunschboxAusgabe{  max-height: 76px;overflow:hidden;  width: 706px;}
+#iArt_wunschboxAusgabeInner{position:static; width: 741px; padding-right:35px;max-height: 77px;margin-bottom: -1px;overflow-y: scroll;}
+.iArt_musikwunschItem{display:block; border-bottom: 1px solid #083C3F; padding: 0 3px; color:#0f8188; margin: 0; height: 20px;line-height: 20px;width:706px; font-size:12px; /* font-weight:bold; */ transition: all 150ms;}
+.iArt_musikwunschItem.admin{cursor:pointer;}
+.iArt_musikwunschItem:hover{background:rgba(1, 14, 15, 0.9); color:#fff;}
+.iArt_musikwunschItem.status_1{color:green;}
+.iArt_musikwunschItem.status_2{color: rgb(181, 181, 43);}
+
+.iArt_musikwunschItemUser{float:left; width:160px; overflow: hidden;height: 20px;padding: 2px 10px 3px 1px; margin-right:10px; border-right:1px solid #083C3F;}
+.iArt_musikwunschItemBand{float:left; overflow: hidden;width: 250px; height: 20px;padding-right:10px; margin-right:10px; border-right:1px solid #083C3F;}
+.iArt_musikwunschItemSong{float:left; width: 250px;overflow: hidden;}
+.iArt_musikwunschItemGreet{display:none;}
+#iArt_wunschboxAusgabeLabels{border-bottom:1px solid #083C3F;height: 19px;  color: #909494; margin-top: 5px;text-align:left;}
+#iArt_WBNameLabel{float:left; width: 163px;  font-size:12px;margin-right: 10px;padding-left: 5px;margin-top: 3px;height: 15px;border-right: 1px solid #083C3F;}
+#iArt_WBBandLabel{float:left; width: 250px;margin-top: 3px;height: 15px;margin-right: 10px;border-right: 1px solid #083C3F;}
+#iArt_WBSongLabel{float:left; width: 250px;margin-top: 3px;}
+#iArt_wunschBestaetigung{position: absolute; bottom: -70px; padding: 15px 30px 12px 30px; font-size:17px; text-align:center; border-radius: 8px;width: 350px; background:#000; z-index:60; left: 180px; font-weight:bold; color:#0f8188;border: 2px solid #083C3F;}
+#iArt_wunschboxBandArea, #iArt_wunschboxSongArea, #iArt_wunschboxGreetArea{position:absolute;font-size: 15px; width: 310px;color:#0f8188; text-align:left;}
+#iArt_wunschboxBandArea{top: 38px; left:30px; overflow:hidden; height:40px;}
+#iArt_wunschboxSongArea{top: 81px; left:30px; overflow:hidden; height:40px;}
+#iArt_wunschboxGreetArea{top: 38px; left: 370px;}
+.iArt_wunschboxBearbValue{color:#eee; font-size:13px; display:block; margin-left:5px;margin-top: 2px;}
+#iArt_wunschboxBearbgreetContainer{width:305px; overflow:hidden;}
+#iArt_wunschboxBearbgreetContainer .iArt_wunschboxBearbValue{width: 330px; overflow-y:scroll; height: 65px; font-weight: normal;padding-right:35px;}
+#iArt_wunschboxBearbID{display:none;}
+#iArt_wunschboxBearbButtonArea{border-top:1px solid #083C3F; position:absolute; top: 127px; height: 30px;width: 100%;}
+.iArt_WunschBearbBtn{position:absolute; padding: 2px 0; white-space: nowrap;border:1px solid #083C3F; border-radius:4px; top: 4px; color: #0f8188; transition:all 200ms; cursor:pointer;text-align: center;width: 105px;}
+#iArt_wunschboxButtonInList{left:10px;}
+#iArt_wunschboxButtonInList:hover{color:#fff; background:rgba(39, 170, 3, 0.7); border-color:#eee;}
+#iArt_wunschboxButtonNotThere{left: 121px;}
+#iArt_wunschboxButtonNotThere:hover{color:#fff; background:rgba(204, 204, 55, 0.7); border-color:#eee;}
+#iArt_wunschboxButtonErledigt{right: 10px;}
+#iArt_wunschboxButtonErledigt:hover{color:#fff; background:rgba(8, 60, 63, 0.8); border-color:#eee;}
+.iArt_wunschbearbeiter{display:none;}
+#iArt_blockOnEmtyBox{position:absolute; top: 26px; height: 24px;width: 100%;padding-top: 5px;background:#000; text-align:center; color:#fff; font-weight:bold;display: none;}
+
+
+
+#iArt_chatMessageInput{border: 2px solid #083C3F; font-weight:normal; display: block;outline: none;padding: 0 5px;float: left;background:#000;color: #eee; font-size: 13px;width: 565px; height:40px; border-radius: 2px;}
+#iArt_chatMsgSender{display:block; float:left; cursor: pointer;height: 40px;margin-left:5px; outline: none;border-radius: 2px; border:  2px solid #083C3F; width:48px; background-color: #000;background-image: url(http://www.radio-emergency.de/img/re-sprite.png); background-position:  -213px -141px;background-repeat: no-repeat;position:relative;}
+#iArt_chatMsgSenderHighlight{display:block; z-index:2; position:absolute; top:0; right:0; bottom:0; left:0; background: url(http://radio-emergency.de/img/re-sprite.png) -174px -141px no-repeat; opacity: 0; transition:all 200ms;}
+#iArt_chatMsgSender:hover #iArt_chatMsgSenderHighlight{opacity:1;}
+.iArt_chatFunctionsBtn{float:left; cursor: pointer;background-color: #000;background-repeat: no-repeat;height: 40px;margin-left:5px; margin-top: 5px;outline: none;border-radius: 2px; border:  2px solid #083C3F; width:38px; position:relative;}
+.iArt_chatFunctionsHighlight{position:absolute; top:0; right:0; bottom:0; left:0; opacity: 0; transition:all 200ms;}
+#iArt_chatFunctionColors{background-image: url(http://www.radio-emergency.de/img/re-sprite.png);background-position: -181px -76px;}
+#iArt_chatFunctionColors .iArt_chatFunctionsHighlight{background-image: url(http://www.radio-emergency.de/img/re-sprite.png); background-position:-181px -109px;}
+#iArt_chatFunctionColors:hover .iArt_chatFunctionsHighlight{opacity:1;}
+#iArt_chatFunctionSmileys{background-image: url(http://www.radio-emergency.de/img/re-sprite.png);background-position: -215px -75px;}
+#iArt_chatFunctionSmileys .iArt_chatFunctionsHighlight{background: url(http://www.radio-emergency.de/img/re-sprite.png) -215px -108px no-repeat;}
+#iArt_chatFunctionSmileys:hover .iArt_chatFunctionsHighlight{opacity:1;}
+#iArt_colorWin{position:absolute; bottom: 0px; right: 216px; border: 2px solid #083C3F; display:none; background: rgba(0,0,0,0.6);width: 295px;cursor: default;}
+#iArt_colorInp{margin: 1px 6px;padding: 5px 0;}
+#iArt_colorSpeichern{margin-right: 5px;position: absolute; cursor: pointer;border: 2px solid #083C3F; color: #0C6B71; font-weight:bold;border-radius: 2px;transition: all 250ms; bottom: 8px; height: 20px; right: 5px; line-height: 18px; padding: 0 5px;}
+#iArt_colorSpeichern:hover{color:#eee;}
+#iArt_aktuelleSchriftfarbe{float:left; background:#eee; width: 40px; height: 20px; margin: 2px 10px 3px 10px;}
+#iArt_userColorHead{color:#eee; font-weight:bold; text-align:center; padding: 5px 0 5px 0;font-size: 14px;border-bottom: 1px solid #083C3F;margin: 0 4px;}
+.iArt_colorToPic{float:left; cursor:pointer; position:relative; border: 1px solid #000; margin: 1px;width: 21px;height: 17px;}
+.iArt_colorHighlight{position:absolute; display:none; top:0; right:0; bottom:0; left:0; background:url(http://www.radio-emergency.de/img/kleinerhaken.png) center no-repeat;}
+.iArt_colorToPic.active .iArt_colorHighlight{display:block; cursor:default;}
+.iArt_colorTrenner{float:left; width: 1px; height:1px;}
+#iArt_colorPicTrenner{clear:both; height: 7px;border-top: 1px solid #083C3F;margin: 0 3px;}
+#iArt_schriftFett, #iArt_schriftKursiv{position:absolute; cursor: pointer;border-radius: 2px;bottom: 8px; border:2px solid #083C3F; font-weight:bold; width:20px; text-align: center;height:20px; line-height:20px; color: #0C6B71; transition: all 250ms;}
+#iArt_schriftFett:hover, #iArt_schriftKursiv:hover{color:#fff;}
+#iArt_schriftFett.active, #iArt_schriftKursiv.active{border:2px solid #eee; color:#eee;}
+#iArt_schriftFett{left: 60px;}
+#iArt_schriftKursiv{left: 85px;}
+
+#iArt_smileyWin{position:absolute; right:0; height: 100%; width: 348px; z-index: 5;display: none;bottom: 0px;}
+#iArt_smileylistHead{padding: 6px 3px 4px 10px;}
+#iArt_smileyCont{border-radius:2px; width: 350px;background:#000; border: 2px solid #083C3F; position:absolute; right:-2px; left:0; top:-2px; bottom:-2px;overflow: hidden;}
+#iArt_smileyInnerCont{overflow-y:scroll;  padding: 5px 40px 5px 10px;margin-top: 5px;width: 380px; position:relative;}
+#iArt_smileyHelpFrame{height:2px; width:30px; background:#083C3F; position:absolute; bottom:-2px; left:-20px; display:none;}
+#iArt_smileyWinCloser{position:absolute; cursor:pointer; background:#000; border: 1px solid #083C3F; border-radius:3px; transition:all 200ms; font-size: 13px;font-weight:bold; padding: 1px 4px 2px 4px; top:3px; right: 3px;}
+#iArt_smileyWinCloser:hover{background:#f00;}
+.iArt_smileyEntry{cursor:pointer; display: inline-block;margin: 2px;}
+.iArt_smileyTrennung{display:block; clear:both; height:1px; margin: 10px 4px 5px 4px; background:#05292C;}
+
+#iArt_chatMantel.minified #iArt_chatmessageContainer{height: 53px !important;margin-top: 62px !important;}
+#iArt_chatMantel.minified #iArt_chatMessageContMainChat{height: 50px !important;}
+#iArt_chatMantel.minified #iArt_privMessTabPanelContainer{display:none !important;}
+#iArt_chatMantel.minified .iArt_chatWindowContainer{top:0 !important;}
