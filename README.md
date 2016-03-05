@@ -9,6 +9,7 @@ Dieser Chat wurde für [www.radio-emergency.de](http://www.radio-emergency.de) v
   - Privatchats in Tabs
   - Wunschbox für Musikwünschen (wird von Administratoren / Moderatoren abgearbeitet)
   - Administratoren-Login über bestehende php-session der Seite
+
 -------------------------------
 
 ###Funktionen für Admins:
@@ -17,6 +18,7 @@ Dieser Chat wurde für [www.radio-emergency.de](http://www.radio-emergency.de) v
   - Abarbeiten von Wünschen in der Box
   - Kicken von Usern
   - Ermitteln von IP-Adressen der User
+
 -------------------------------
 
 
@@ -25,17 +27,20 @@ Dieser Chat wurde für [www.radio-emergency.de](http://www.radio-emergency.de) v
   - [ ] Unterstützung BB-Code für Links ([link]...[/link])
   - [ ] Responsive-Template um mobile-devices zu unterstützen
 
+-------------------------------
 
 
 Bekannte Probleme
   - [ ] Verbindungsabbrüche bei Mobile Devices
   - [ ] Bei Verbindungsabbrüchen kann ein Username in der Liste stecken bleiben und verschwindet dort bis zum Neustart der Anwendung nicht und Blockiert diesen somit für neue Logins.
+
 -------------------------------
  
  
 
 Der Chat verzichtet Absichlich auf jegliches Logging der Useraktivität oder der Nachrichten.
 Nichts wird gespeichert!
+
 -------------------------------
 
 Basiert im Grundaufbau auf dem [Getting Started](http://socket.io/get-started/chat/) guide 
