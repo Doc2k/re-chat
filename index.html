@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Radio-Emergency.de Chat</title>
+    <link rel="stylesheet" type="text/css" href="http://www.radio-emergency.de/chatincludes/chat.css" />
+  </head>
+  <body>
+    <div style="position:relative;" id="iArt_chatMantel">
+		<div style="color:#f00; text-align:center; font-weight:bold; font-size:14px; margin:15px 0 -15px 0; display:none;" id="iArt_connectionErrorMessage">Verbindung zum Chat verloren! Bitte verbinde Dich neu!</div>
+	    <div id="reChatLoginBlocker">
+	    	<div id="iArt_chatLoginHead">Anmeldung</div>
+	    	<form action="nix" id="iArt_chatLoginForm">
+		    	<div class="iArt_chatLoginLabel">Benutzername:</div>
+		    	<div class="iArt_chatContent"><input id="reUsername" type="text" /></div>
+		    	<div style="clear:both;"></div>
+		    	<div class="iArt_chatLoginLabel">Geschlecht:</div>
+		    	<div class="iArt_chatContent">
+		    		<select id="iArt_sex">
+			    		<option value="0">keine Angabe</option>
+			    		<option value="1">weiblich</option>
+			    		<option value="2">männlich</option>
+			    	</select>
+		    	</div>
+		    	<div style="clear:both;"></div>
+		    	<button id="iArt_sender">Betreten</button>
+	    	</form>
+	    </div>
+	    <div id="iArt_chatwin">
+			<div id="iArt_panelLeft">&laquo;</div><div id="iArt_panelRight">&raquo;</div>
+		    <div id="iArt_chatmessageContainer">
+
+		    	<div id="iArt_privMessTabPanelContainer"><div id="iArt_privMessTabPanel"><div class="iArt_ChatTab active" id="iArt_TabMainChat" data-target="iArt_chatMessageContMainChat">RE-Chat<span class="iArt_howManyMessages"> (<span class="iArt_messageCount">0</span>)</span></div></div></div>
+			    <div class="iArt_chatWindowContainer" id="iArt_chatMessageContMainChat">
+			    	<div id="messages" class="messages"></div>
+				</div>
+				<div id="iArt_wunschBestaetigung">Wunsch erfolgreich gesendet!</div>
+		    </div>
+		    <div id="reChatUsers">
+				<div id="iArt_userpanel">
+					<div class="iArt_userpanelBox">
+						<div class="iArt_userpanelCont"></div>
+						<ul>
+							<li class="iArt_userPanelTrigger" data-job="PrivChat" data-user="#"><span class="iArt_userPanelArrows">&raquo;</span> Privatchat starten</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="iArt_smileyWin">
+					<div id="iArt_smileyCont">
+						<div id="iArt_smileylistHead">Smileys<div id="iArt_smileyWinCloser">x</div></div>
+						<div id="iArt_smileyInnerCont"></div>
+					</div>
+				</div>
+				<div id="iArt_smileyHelpFrame"></div>
+
+				<div id="iArt_userlistHead">Benutzerliste<div id="iArt_toggleChatSounds"><div class="iArt_toggleChatSoundsHiglight"></div><div class="iArt_toggleSoundBubble"></div></div></div>
+		    	<div id="iArt_userListContainer">
+					<div id="iArt_userListContainerInner">
+						<div id="iArt_ChatUsersList"></div>
+					</div>
+				</div>
+		    </div>
+		    <div style="clear:both;"></div>
+		    <div id="iArt_MessageSendingContainer">
+		    	<form id="iArt_chatmessageForm" action="#">
+			      	<input id="iArt_chatMessageInput" autocomplete="off" /><button id="iArt_chatMsgSender"><span id="iArt_chatMsgSenderHighlight"></span></button>
+			    </form>
+			</div>
+
+			<div id="iArt_wunschboxBTN"><div class="iArt_wunschboxBtnImg"><div class="iArt_chatFunctionsHighlight"></div></div><div class="iArt_chatFunctionsLabel">Musikwunsch</div></div>
+	    	<div class="iArt_chatFunctionsBtn" id="iArt_chatFunctionColors"><span class="iArt_chatFunctionsHighlight"></span></div>
+	    	<div class="iArt_chatFunctionsBtn" id="iArt_chatFunctionSmileys">
+				<span class="iArt_chatFunctionsHighlight"></span></div>
+	    		<div id="iArt_colorWin">
+	    			<div id="iArt_userColorHead">Textformatierung</div>
+	    			<div id="iArt_colorInp">
+	    				<div class="iArt_colorToPic" style="background:#003300" data-color="#003300"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#003333" data-color="#003333"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#003366" data-color="#003366"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#003399" data-color="#003399"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#0033cc" data-color="#0033cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#0033ff" data-color="#0033ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#cc3300" data-color="#cc3300"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc3333" data-color="#cc3333"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc3366" data-color="#cc3366"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc3399" data-color="#cc3399"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc33cc" data-color="#cc33cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc33ff" data-color="#cc33ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#006600" data-color="#006600"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#006633" data-color="#006633"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#006666" data-color="#006666"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#006699" data-color="#006699"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#0066cc" data-color="#0066cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#0066ff" data-color="#0066ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#cc6600" data-color="#cc6600"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc6633" data-color="#cc6633"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc6666" data-color="#cc6666"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc6699" data-color="#cc6699"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc66cc" data-color="#cc66cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc66ff" data-color="#cc66ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#009900" data-color="#009900"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#009933" data-color="#009933"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#009966" data-color="#009966"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#009999" data-color="#009999"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#0099cc" data-color="#0099cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#0099ff" data-color="#0099ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#cc9900" data-color="#cc9900"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc9933" data-color="#cc9933"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc9966" data-color="#cc9966"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc9999" data-color="#cc9999"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc99cc" data-color="#cc99cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cc99ff" data-color="#cc99ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#00cc00" data-color="#00cc00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00cc33" data-color="#00cc33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00cc66" data-color="#00cc66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00cc99" data-color="#00cc99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00cccc" data-color="#00cccc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00ccff" data-color="#00ccff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#cccc00" data-color="#cccc00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cccc33" data-color="#cccc33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cccc66" data-color="#cccc66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cccc99" data-color="#cccc99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cccccc" data-color="#cccccc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ccccff" data-color="#ccccff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#00ff00" data-color="#00ff00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00ff33" data-color="#00ff33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00ff66" data-color="#00ff66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00ff99" data-color="#00ff99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00ffcc" data-color="#00ffcc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#00ffff" data-color="#00ffff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#ccff00" data-color="#ccff00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ccff33" data-color="#ccff33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ccff66" data-color="#ccff66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ccff99" data-color="#ccff99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ccffcc" data-color="#ccffcc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ccffff" data-color="#ccffff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#663300" data-color="#663300"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#663333" data-color="#663333"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#663366" data-color="#663366"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#663399" data-color="#663399"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#6633cc" data-color="#6633cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#6633ff" data-color="#6633ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#ff3300" data-color="#ff3300"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff3333" data-color="#ff3333"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff3366" data-color="#ff3366"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff3399" data-color="#ff3399"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff33cc" data-color="#ff33cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff33ff" data-color="#ff33ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_clear_1"></div>
+	    				<div class="iArt_colorToPic" style="background:#666600" data-color="#666600"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#666633" data-color="#666633"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#666666" data-color="#666666"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#666699" data-color="#666699"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#6666cc" data-color="#6666cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#6666ff" data-color="#6666ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#ff6600" data-color="#ff6600"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff6633" data-color="#ff6633"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff6666" data-color="#ff6666"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff6699" data-color="#ff6699"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff66cc" data-color="#ff66cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff66ff" data-color="#ff66ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#339900" data-color="#339900"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#339933" data-color="#339933"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#339966" data-color="#339966"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#339999" data-color="#339999"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#3399cc" data-color="#3399cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#3399ff" data-color="#3399ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#ff9900" data-color="#ff9900"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff9933" data-color="#ff9933"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff9966" data-color="#ff9966"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff9999" data-color="#ff9999"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff99cc" data-color="#ff99cc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ff99ff" data-color="#ff99ff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#33cc00" data-color="#33cc00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33cc33" data-color="#33cc33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33cc66" data-color="#33cc66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33cc99" data-color="#33cc99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33cccc" data-color="#33cccc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33ccff" data-color="#33ccff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#ffcc00" data-color="#ffcc00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffcc33" data-color="#ffcc33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffcc66" data-color="#ffcc66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffcc99" data-color="#ffcc99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffcccc" data-color="#ffcccc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffccff" data-color="#ffccff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#33ff00" data-color="#33ff00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33ff33" data-color="#33ff33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33ff66" data-color="#33ff66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33ff99" data-color="#33ff99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33ffcc" data-color="#33ffcc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#33ffff" data-color="#33ffff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#ffff00" data-color="#ffff00"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffff33" data-color="#ffff33"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffff66" data-color="#ffff66"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffff99" data-color="#ffff99"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffffcc" data-color="#ffffcc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffffff" data-color="#ffffff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    				<div class="iArt_colorToPic" style="background:#444444" data-color="#444444"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#555555" data-color="#555555"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#666666" data-color="#666666"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#777777" data-color="#777777"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#888888" data-color="#888888"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#999999" data-color="#999999"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorTrenner"></div>
+	    				<div class="iArt_colorToPic" style="background:#aaaaaa" data-color="#aaaaaa"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#bbbbbb" data-color="#bbbbbb"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#cccccc" data-color="#cccccc"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#dddddd" data-color="#dddddd"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic active" style="background:#eeeeee" data-color="#eeeeee"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_colorToPic" style="background:#ffffff" data-color="#ffffff"><div class="iArt_colorHighlight"></div></div>
+	    				<div class="iArt_bothClear"></div>
+	    			</div>
+	    			<div id="iArt_colorPicTrenner"></div>
+	    			<div id="iArt_aktuelleSchriftfarbe"></div>
+	    			<div id="iArt_schriftFett" class="iArt_fontStyleBtn">F</div>
+	    			<div id="iArt_schriftKursiv" class="iArt_fontStyleBtn">K</div>
+	    			<div id="iArt_colorSpeichern">Fertig</div>
+	    			<div style="clear:both; height:5px;"></div>
+	    		</div>
+	    	<input id="iArt_userColor" type="hidden" value="#eeeeee" />
+	    	<input id="iArt_userFontWeight" type="hidden" value="normal" />
+	    	<input id="iArt_userFontStyle" type="hidden" value="normal" />
+	    	<input id="iArt_userFontSmoothing" type="hidden" value="auto" />
+	    	<input id="iArt_userNameBackup" type="hidden" value="nix" />
+	    </div>
+		<div id="iArt_wunschboxContainer">
+			<div id="iArt_wunschboxFormHead">Musik w&uuml;nschen<div id="iArt_wunschFormCloser">x</div><div id="iArt_WunschlimitShow">Aktuelles Limit:<span id="iArt_zeigWunschlimit">bla</span></div></div>
+			<div id="iArt_wunschboxBlocker">Blaaaaaaaaaaaa!</div>
+			<form id="iArt_musikWunschForm" action="#nix">
+				<div class="iArt_wishArea" id="iArt_wischArtistCont">
+					Interpret (Band):<br /><input id="iArt_whish_Artist" type="text" value="" tabindex="101" />
+				</div>
+				<div class="iArt_wishArea" id="iArt_wischTitleCont">
+					Titel (Song):<br /><input id="iArt_whish_Titel" type="text" value="" tabindex="102" />
+				</div>
+				<div class="iArt_wishArea" id="iArt_wischGreetCont">
+					Gru&szlig; (optional):<br /><textarea id="iArt_whishGreet" tabindex="103"></textarea>
+				</div>
+				<input id="iArt_wishSubmit" type="submit" value="Wunsch absenden" tabindex="104" />
+			</form>
+		</div>
+		<div id="iArt_WunschboxAusgabeContainer">
+			<div id="iArt_wunschboxAusgabeHead">RE-Wunschbox<div id="iArt_wunschAusgabeCloser">x</div></div>
+			<div id="iArt_wunschboxAusgabeLabels"><div id="iArt_WBNameLabel">Benutzer</div><div id="iArt_WBBandLabel">Band</div><div id="iArt_WBSongLabel">Song</div></div>
+			<div id="iArt_wunschboxAusgabe"><div id="iArt_wunschboxAusgabeInner"></div></div>
+			<div id="iArt_blockOnEmtyBox">Die Wunschbox ist leer.</div>
+		</div>
+    </div>
+	<div style="display:none;"><iframe id="iArt_usersessionCheck" src="http://radio-emergency.de/includes/checkadmin_json.php"></iframe></div>
+	<audio controls preload="none" id="messagePiep"><source src="http://www.radio-emergency.de/sound/message.mp3" type="audio/mpeg" /></audio>
+    <script src="http://www.radio-emergency.de/js/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="http://www.radio-emergency.de/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://www.radio-emergency.de/smile/re_smileys.js"></script>
+	<script type="text/javascript" src="http://www.radio-emergency.de/chatincludes/re_chat.js"></script>
+    <script type="text/javascript">
+
+	</script>
+  </body>
+</html>
