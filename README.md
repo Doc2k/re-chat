@@ -8,7 +8,7 @@ Dieser Chat wurde für [www.radio-emergency.de](http://www.radio-emergency.de) v
   - individuelle Textfarben sowie Standard-Formatierunge (Fett / Kursiv) für Chatnachrichten.
   - Privatchats in Tabs
   - Wunschbox für Musikwünsche (wird von Administratoren / Moderatoren abgearbeitet)
-  - Administratoren-Login über bestehende php-session der Haupt-Seite (Chat ist in iframe eingebungen)
+  - Administratoren-Login über bestehende php-session der Haupt-Seite (Chat ist in iframe eingebunden)
   - Benachrichtigungstöne an- / abschalten
   
 -------------------------------
