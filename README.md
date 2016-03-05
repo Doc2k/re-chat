@@ -2,42 +2,44 @@
 
 Dieser Chat wurde für [www.radio-emergency.de](http://www.radio-emergency.de) von mir zusammengeschraubt.
 
-Funktionen:
+###Funktionen:
 ------------------------------------------
-  -> Name und Geschlecht für Chatnutzer
-  -> Smiley-Support
-  -> individuelle Textfarben sowie Standard-Formatierunge (Fett / Kursiv) für Chatnachrichten.
-  -> Privatchats in Tabs
-  -> Wunschbox für Musikwünschen (wird von Administratoren / Moderatoren abgearbeitet)
-  -> Administratoren-Login über bestehende php-session der Seite
-------------------------------------------
+  - Name und Geschlecht für Chatnutzer
+  - Smiley-Support
+  - individuelle Textfarben sowie Standard-Formatierunge (Fett / Kursiv) für Chatnachrichten.
+  - Privatchats in Tabs
+  - Wunschbox für Musikwünschen (wird von Administratoren / Moderatoren abgearbeitet)
+  - Administratoren-Login über bestehende php-session der Seite
 
-Funktionen für Admins:
-------------------------------------------
-  -> Ein / Ausschalter der Wunschbox
-  -> Verändern des Wunschlimits
-  -> Abarbeiten von Wünschen in der Box
-  -> Kicken von Usern
-  -> Ermitteln von IP-Adressen der User
-------------------------------------------
 
-Geplante Funktionen:
+###Funktionen für Admins:
 ------------------------------------------
-  -> Unterstützung BB-Code für Bilder ([img]...[/img])
-  -> Unterstützung BB-Code für Links ([link]...[/link])
-  -> Responsive Template um mobile-devices zu unterstützen
+  - Ein / Ausschalter der Wunschbox
+  - Verändern des Wunschlimits
+  - Abarbeiten von Wünschen in der Box
+  - Kicken von Usern
+  - Ermitteln von IP-Adressen der User
+
+
+
+###Geplante Funktionen:
 ------------------------------------------
+  - [ ] Unterstützung BB-Code für Bilder ([img]...[/img])
+  - [ ] Unterstützung BB-Code für Links ([link]...[/link])
+  - [ ] Responsive-Template um mobile-devices zu unterstützen
+
+
 
 Bekannte Probleme
 ------------------------------------------
-  -> Verbindungsabbrüche bei Mobile Devices
-  -> Bei Verbindungsabbrüchen kann ein Username in der Liste stecken bleiben und verschwindet dort bis zum Neustart der
-     Anwendung nicht und Blockiert diesen somit für neue Logins.
-------------------------------------------
+  - [ ] Verbindungsabbrüche bei Mobile Devices
+  - [ ] Bei Verbindungsabbrüchen kann ein Username in der Liste stecken bleiben und verschwindet dort bis zum Neustart der Anwendung nicht und Blockiert diesen somit für neue Logins.
+
+
 
 
 Der Chat verzichtet Absichlich auf jegliches Logging der Useraktivität oder der Nachrichten.
-Nicht wird gespeichert!
+Nichts wird gespeichert!
 
 
 Basiert im Grundaufbau auf dem [Getting Started](http://socket.io/get-started/chat/) guide 
