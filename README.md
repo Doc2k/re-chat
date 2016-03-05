@@ -2,14 +2,15 @@
 
 Dieser Chat wurde für [www.radio-emergency.de](http://www.radio-emergency.de) von mir zusammengeschraubt.
 
-##Funktionen:
+##Allgemeine Funktionen:
   - Name und Geschlecht für Chatnutzer
   - Smiley-Support
   - individuelle Textfarben sowie Standard-Formatierunge (Fett / Kursiv) für Chatnachrichten.
   - Privatchats in Tabs
   - Wunschbox für Musikwünschen (wird von Administratoren / Moderatoren abgearbeitet)
   - Administratoren-Login über bestehende php-session der Seite
-
+  - Benachrichtigungstöne an- / abschalten
+  
 -------------------------------
 
 ##Funktionen für Admins:
