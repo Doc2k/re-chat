@@ -6,51 +6,14 @@
 	var wunschid=0;
 	var anzahlwuensche=0;
 	var numUsers = 0;
-	var Admins = {
-		"0": {
-			Name: "Doc2k",
-			Gender: "2"
-		}, "1": {
-			Name: "DJ-Bagga",
-			Gender:"2"
-		}, "2": {
-			Name: "DareDeggel",
-			Gender: "2"
-		}, "3": {
-			Name: "Dr. Hombre",
-			Gender: "2"
-		}, "4": {
-			Name: "O-Liner",
-			Gender: "2"
-		}, "5": {
-			Name: "Pike",
-			Gender: "2"
-		}, "6": {
-			Name: "Shorty",
-			Gender: "2"
-		}, "7": {
-			Name: "Amok Alex",
-			Gender: "2"
-		}, "8": {
-			Name: "Frank Stoner",
-			Gender: "2"
-		}, "9": {
-			Name: "Roni",
-			Gender: "1"
-		}, "10": {
-			Name: "Kabel",
-			Gender: "2"
-		}, "11": {
-			Name: "Alex & Frank",
-			Gender: "2"
-		}, "12": {
-			Name: "Roni & Kabel",
-			Gender: "0"
-		}, "13": {
-			Name: "Loki",
-			Gender: "2"
-		}
-	};
+
+	/* Geschlechter der Admins (stehen nicht in der Datenbank / php-Session) */
+	/* --------------------------------------------------------- */
+		var Admins = {
+			"0": {Name: "Doc2k", Gender: "2"},
+			"1": {Name: "DJ-Bagga",Gender:"2"}
+		};
+	/* --------------------------------------------------------- */
 /* ############################################################################################################################# */
 
 /* Initialisierung Server */
