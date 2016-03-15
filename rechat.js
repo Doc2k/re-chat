@@ -23,7 +23,7 @@
 	var io = require('socket.io')(http);
 
 	app.get('/', function(req, res){
-		res.sendFile(__dirname + '/chat.html');
+		res.sendFile(__dirname + '/index.html');
 	});
 /* ############################################################################################################################# */
 
@@ -428,8 +428,8 @@
 
 /* Listener auf port 3000 */
 /* ############################################################################################################################# */
-	http.listen(3456, function(){
-		console.log('Server läuft auf Port 3456');
+	http.listen(3000, function(){
+		console.log('Server läuft auf Port 3000');
 		console.log(' ');
 		console.log('############################################################################');
 		console.log('################## DIESES FENSTER NICHT SCHLIESSEN!!!! #####################');
