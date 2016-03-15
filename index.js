@@ -428,8 +428,8 @@
 
 /* Listener auf port 3000 */
 /* ############################################################################################################################# */
-	http.listen(3000, function(){
-		console.log('Server läuft auf Port 3000');
+	http.listen(3456, function(){
+		console.log('Server läuft auf Port 3456');
 		console.log(' ');
 		console.log('############################################################################');
 		console.log('################## DIESES FENSTER NICHT SCHLIESSEN!!!! #####################');
