@@ -221,7 +221,7 @@
 
 		      				/* Nachricht durch Funktion reinigen lassen und Absenden  */
 			      			/* -------------------------------------------------------------  */
-				      			var neueNachricht = iArt_ChangeMarkup(jQuery('#iArt_chatMessageInput').val(), true);
+				      			var neueNachricht = iArt_ChangeMarkup(jQuery('#iArt_chatMessageInput').val(), false);
 				        		if(neueNachricht.trim().length > 0){
 
 									if(privateChatting){
@@ -250,7 +250,7 @@
 	      		/* ============================================================================================  */
 		      		socket.on('chat message', function(msg){
 		        		if(connected){
-		        			jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+msg.zeitpunkt+') <img src="http://radio-emergency.de/img/user_'+msg.sex+'_'+msg.istEinAdmin+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, false)+'</span>'));
+		        			jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+msg.zeitpunkt+') <img src="http://radio-emergency.de/img/user_'+msg.sex+'_'+msg.istEinAdmin+'.png" /> '+iArt_ChangeMarkup(msg.username, true)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, false)+'</span>'));
 		        			jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
 
 							if(privateChatting){
