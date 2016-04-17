@@ -223,17 +223,19 @@
 		      				/* Nachricht durch Funktion reinigen lassen und Absenden  */
 			      			/* -------------------------------------------------------------  */
 				      			var neueNachricht = iArt_ChangeMarkup(jQuery('#iArt_chatMessageInput').val(), false);
+								privateChattingWith = iArt_ChangeMarkup(privateChattingWith, false);
+								var derAbsender= iArt_ChangeMarkup(jQuery('#iArt_userNameBackup').val() ,false);
 				        		if(neueNachricht.trim().length > 0){
 
 									if(privateChatting){
 										/* Privatnachricht  */
 										/* -------------------------------------------------------------  */
-											socket.emit('private chat message', neueNachricht, privateChattingWith, jQuery('#iArt_userNameBackup').val());
+											socket.emit('private chat message', neueNachricht, privateChattingWith, derAbsender);
 										/* -------------------------------------------------------------  */
 									}else{
 										/* Normale Nachricht  */
 										/* -------------------------------------------------------------  */
-											socket.emit('chat message', neueNachricht, jQuery('#iArt_userNameBackup').val());
+											socket.emit('chat message', neueNachricht, derAbsender);
 										/* -------------------------------------------------------------  */
 									}
 									jQuery('#iArt_chatMessageInput').val('').focus();
@@ -251,7 +253,7 @@
 	      		/* ============================================================================================  */
 		      		socket.on('chat message', function(msg){
 		        		if(connected){
-		        			jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+msg.zeitpunkt+') <img src="http://radio-emergency.de/img/user_'+msg.sex+'_'+msg.istEinAdmin+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
+		        			jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+iArt_ChangeMarkup(msg.zeitpunkt, false)+') <img src="http://radio-emergency.de/img/user_'+iArt_ChangeMarkup(msg.sex, false)+'_'+iArt_ChangeMarkup(msg.istEinAdmin, false)+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
 		        			jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
 
 							if(privateChatting){
@@ -363,7 +365,7 @@
 								/* ============================================================================================  */
 									/* Nachricht in Chatfenster schreiben  */
 									/* -------------------------------------------------------------  */
-										jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+msg.zeitpunkt+') <img src="http://radio-emergency.de/img/user_'+iArt_ChangeMarkup(msg.sex, false)+'_'+iArt_ChangeMarkup(msg.istEinAdmin, false)+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
+										jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+iArt_ChangeMarkup(msg.zeitpunkt, false)+') <img src="http://radio-emergency.de/img/user_'+iArt_ChangeMarkup(msg.sex, false)+'_'+iArt_ChangeMarkup(msg.istEinAdmin, false)+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
 										jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).scrollTop(jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').outerHeight());
 									/* -------------------------------------------------------------  */
 
