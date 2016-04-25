@@ -14,6 +14,8 @@
 			var isInInputField = false;
 			var wunschlimit =0;
 			var wunschzaehler=0;
+			var lastscroll=0;
+			var jumpToEnd=true;
   		/* ############################################################################################################ */
 
 		/* Socket-Verbindung herstellen  */
@@ -254,7 +256,9 @@
 		      		socket.on('chat message', function(msg){
 		        		if(connected){
 		        			jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+iArt_ChangeMarkup(msg.zeitpunkt, false)+') <img src="http://radio-emergency.de/img/user_'+iArt_ChangeMarkup(msg.sex, false)+'_'+iArt_ChangeMarkup(msg.istEinAdmin, false)+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
-		        			jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+		        			if(jumpToEnd){
+								jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+							}
 
 							if(privateChatting){
 								if(jQuery('#iArt_TabMainChat').hasClass('active')){}else{
@@ -391,7 +395,7 @@
 					socket.on('user joined', function (data) {
 						if(connected){
 				    		jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').addClass('reChatInfo').html('('+data.zeitpunkt+') '+iArt_ChangeMarkup(data.username, false)+' hat den Chat betreten'));
-				    		jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+				    		if(jumpToEnd){jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());}
 						}
 					});
 				/* ============================================================================================  */
@@ -402,7 +406,7 @@
 					socket.on('user left', function (data) {
 						if(connected){
 							jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').addClass('reChatInfo').html('('+data.zeitpunkt+') '+iArt_ChangeMarkup(data.username, false)+' hat den Chat verlassen'));
-							jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+							if(jumpToEnd){jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());}
 						}
 					});
 				/* ============================================================================================  */
@@ -965,6 +969,32 @@
 					});
 				/* ============================================================================================  */
 
+
+				/* Scrolling Messages unterbinden / freischalten  */
+				/* ============================================================================================  */
+					jQuery('#iArt_chatMessageContMainChat').scroll(function(){
+						if(lastscroll>jQuery('#iArt_chatMessageContMainChat').scrollTop()){
+							lastscroll=jQuery('#iArt_chatMessageContMainChat').scrollTop();
+							if(jumpToEnd){
+								jumpToEnd=false;
+								jQuery('#chatDownScroll').fadeIn();
+							}
+						}else{
+							if(jQuery('#iArt_chatMessageContMainChat').scrollTop()>=((jQuery('#messages').outerHeight() - jQuery('#iArt_chatMessageContMainChat').outerHeight())-30)){
+								jumpToEnd=true;
+								jQuery('#chatDownScroll').fadeOut();
+							}
+							lastscroll=jQuery('#iArt_chatMessageContMainChat').scrollTop();
+						}
+					});
+
+					jQuery('#chatDownScroll').click(function(){
+						jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+						jumpToEnd=true;
+						jQuery('#chatDownScroll').fadeOut();
+					});
+				/* ============================================================================================  */
+
 			});
       	/* ############################################################################################################ */
 
@@ -979,7 +1009,7 @@
       	/* Strings umbauen  */
       	/* ############################################################################################################ */
 	      	function iArt_ChangeMarkup(input, withSmile) {
-				if(input !="0"){
+				if(input !="0" && input !="1" && input !="2" && input.length>2){
 
 					/* Javascripte komplett entfernen  */
 					/* ============================================================================================  */
@@ -1038,7 +1068,7 @@
 			jQuery(window).resize(function() {
 				jQuery('#iArt_chatmessageContainer, #reChatUsers').css('height', (jQuery(window).innerHeight()-70)+'px');
 				jQuery('#iArt_userListContainer, #iArt_smileyInnerCont').css('height', ((jQuery(window).innerHeight()-70)-37)+'px');
-				jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+				if(jumpToEnd){jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());}
 			 });
 		/* ############################################################################################################ */
 

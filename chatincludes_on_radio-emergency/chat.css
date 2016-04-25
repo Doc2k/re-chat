@@ -187,3 +187,6 @@ form { background: #000; }
 #iArt_chatMantel.minified #iArt_chatMessageContMainChat{height: 50px !important;}
 #iArt_chatMantel.minified #iArt_privMessTabPanelContainer{display:none !important;}
 #iArt_chatMantel.minified .iArt_chatWindowContainer{top:0 !important;}
+
+#chatDownScroll{position:absolute;cursor:pointer; display:none;color: #13A0A9;transition:opacity 200ms;bottom: 6px;right: 6px;opacity: 0.6;background:#000;width: 50px;line-height: 6px;font-size: 20px;font-weight: bold;padding: 10px 0;text-align: center;border-radius: 5px;box-shadow: inset 0 0 9px -1px #13A0A9 , 1px 1px 7px -2px #fff;}
+#chatDownScroll:hover{opacity:1;}
