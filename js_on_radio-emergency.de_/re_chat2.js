@@ -975,16 +975,19 @@
 					jQuery('#iArt_chatMessageContMainChat').scroll(function(){
 						if(lastscroll>jQuery('#iArt_chatMessageContMainChat').scrollTop()){
 							lastscroll=jQuery('#iArt_chatMessageContMainChat').scrollTop();
-							if(jumpToEnd){
+							if(jumpToEnd===true){
 								jumpToEnd=false;
 								jQuery('#chatDownScroll').fadeIn();
+								console.log('einblenden');
 							}
 						}else{
-							if(jQuery('#iArt_chatMessageContMainChat').scrollTop()>=((jQuery('#messages').outerHeight() - jQuery('#iArt_chatMessageContMainChat').outerHeight())-30)){
+							lastscroll=jQuery('#iArt_chatMessageContMainChat').scrollTop();
+							if(jQuery('#iArt_chatMessageContMainChat').scrollTop()>=(jQuery('#messages').outerHeight() - jQuery('#iArt_chatMessageContMainChat').innerHeight())){
 								jumpToEnd=true;
 								jQuery('#chatDownScroll').fadeOut();
+								console.log('ausblenden');
 							}
-							lastscroll=jQuery('#iArt_chatMessageContMainChat').scrollTop();
+
 						}
 					});
 
@@ -992,6 +995,7 @@
 						jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
 						jumpToEnd=true;
 						jQuery('#chatDownScroll').fadeOut();
+						console.log('ausblenden');
 					});
 				/* ============================================================================================  */
 
@@ -1068,11 +1072,10 @@
 			jQuery(window).resize(function() {
 				jQuery('#iArt_chatmessageContainer, #reChatUsers').css('height', (jQuery(window).innerHeight()-70)+'px');
 				jQuery('#iArt_userListContainer, #iArt_smileyInnerCont').css('height', ((jQuery(window).innerHeight()-70)-37)+'px');
-				if(jumpToEnd==false){
-					jumpToEnd=true;
-					jQuery('#chatDownScroll').fadeOut();
+				if(jumpToEnd){
+					jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
 				}
-				jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+
 			 });
 		/* ############################################################################################################ */
 
