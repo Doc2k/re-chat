@@ -1068,7 +1068,11 @@
 			jQuery(window).resize(function() {
 				jQuery('#iArt_chatmessageContainer, #reChatUsers').css('height', (jQuery(window).innerHeight()-70)+'px');
 				jQuery('#iArt_userListContainer, #iArt_smileyInnerCont').css('height', ((jQuery(window).innerHeight()-70)-37)+'px');
-				if(jumpToEnd){jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());}
+				if(jumpToEnd==false){
+					jumpToEnd=true;
+					jQuery('#chatDownScroll').fadeOut();
+				}
+				jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
 			 });
 		/* ############################################################################################################ */
 
