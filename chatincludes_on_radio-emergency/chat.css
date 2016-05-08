@@ -93,8 +93,8 @@ form { background: #000; }
 #iArt_WunschlimitShow{position:absolute; font-size: 11px; /* font-weight:normal; */ top: 8px; left: 6px;  color: #11757B;}
 #iArt_WunschboxAusgabeContainer{position:absolute; z-index:30; border: 2px solid #083C3F; width: 710px; max-height: 130px;  top: 15px; border-radius: 3px;left: 5px; display:none; background:#000;}
 #iArt_wunschboxAusgabeHead, #iArt_wunschboxBearbeitenHead{padding: 6px 0; border-bottom: 1px solid #083C3F; text-align:center; position:relative; color:#fff; background: rgba(22, 105, 124, 0.2);font-size: 13px; font-weight:bold; -webkit-font-smoothing:antialiased;}
-#iArt_WunschboxLimit{position:absolute; top: 3px; left:5px; width: 17px; height:17px; background: url(http://www.radio-emergency.de/img/re-sprite.png) -154px -239px no-repeat; cursor:pointer;}
-#iArt_wunschlimitImAdmin{text-align: center; padding-top:4px; font-weight:bold; width: 16px;font-size: 11px;z-index:3; text-shadow:0 0 3px #000;}
+#iArt_WunschboxLimit{position:absolute;z-index: 1;top: 3px;left:5px;width: 17px;height:17px;background: url(http://www.radio-emergency.de/img/re-sprite.png) -154px -239px no-repeat;cursor:pointer;}
+#iArt_wunschlimitImAdmin{text-align: center;padding-top: 3px;font-weight:bold;width: 16px;font-size: 11px;z-index:3;text-shadow:0 0 3px #000;}
 #iArt_wunschlimitSetter{display: block; position: absolute; width: 126px; height:35px; background: url(http://www.radio-emergency.de/img/re-sprite.png) -0px -306px no-repeat; top: -10px; left: 30px;display: none;}
 #iArt_wunschlimitRunter, #iArt_wunschlimitHoch{position:absolute;width: 21px; height: 22px; background-image:url(http://www.radio-emergency.de/img/re-sprite.png); background-repeat: no-repeat; top: 6px; cursor:pointer;}
 #iArt_wunschlimitRunter{background-position: -197px -27px;left: 25px;}
@@ -108,11 +108,12 @@ form { background: #000; }
 #iArt_WunschBearbeitung{position:absolute; height: 160px; width: 710px; z-index:40; border:2px solid #083C3F; top: -2px; left: -2px;background: #000; display:none;}
 #iArt_wunschboxAusgabe{  max-height: 76px;overflow:hidden;  width: 706px;}
 #iArt_wunschboxAusgabeInner{position:static; width: 741px; padding-right:35px;max-height: 77px;margin-bottom: -1px;overflow-y: scroll;}
-.iArt_musikwunschItem{display:block; border-bottom: 1px solid #083C3F; padding: 0 3px; color:#0f8188; margin: 0; height: 20px;line-height: 20px;width:706px; font-size:12px; /* font-weight:bold; */ transition: all 150ms;}
+.iArt_musikwunschItem{display:block; border-bottom: 1px solid #083C3F; padding: 0 3px; color:#0f8188; position:relative; margin: 0; height: 20px;line-height: 20px;width:706px; font-size:12px; /* font-weight:bold; */ transition: all 150ms;}
 .iArt_musikwunschItem.admin{cursor:pointer;}
 .iArt_musikwunschItem:hover{background:rgba(1, 14, 15, 0.9); color:#fff;}
 .iArt_musikwunschItem.status_1{color:green;}
 .iArt_musikwunschItem.status_2{color: rgb(181, 181, 43);}
+.GreetinG{position:absolute;opacity: 0.9;text-align: center;right:5px;top:2px;width: 15px;height: 15px;line-height: 16px;background: #000;font-size: 12px;font-weight: bold;color: #F00;text-shadow:1px 1px 1px #333;}
 
 .iArt_musikwunschItemUser{float:left; width:160px; overflow: hidden;height: 20px;padding: 2px 10px 3px 1px; margin-right:10px; border-right:1px solid #083C3F;}
 .iArt_musikwunschItemBand{float:left; overflow: hidden;width: 250px; height: 20px;padding-right:10px; margin-right:10px; border-right:1px solid #083C3F;}

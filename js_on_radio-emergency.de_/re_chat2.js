@@ -798,6 +798,9 @@
 							wunschzaehler++;
 							if(isteiner=="1"){
 								dieNeueWunschListe+='<div data-id="'+dieWunschliste[key].id+'" data-status="'+dieWunschliste[key].wstatus+'" class="iArt_musikwunschItem admin status_'+dieWunschliste[key].wstatus+'">';
+								if(dieWunschliste[key].greet !=""){
+									dieNeueWunschListe+='<div class="GreetinG">G</div>';
+								}
 							}else{
 								dieNeueWunschListe+='<div data-id="'+dieWunschliste[key].id+'" data-status="'+dieWunschliste[key].wstatus+'" class="iArt_musikwunschItem status_'+dieWunschliste[key].wstatus+'">';
 							}
