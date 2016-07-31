@@ -16,6 +16,8 @@
 			var wunschzaehler=0;
 			var lastscroll=0;
 			var jumpToEnd=true;
+			var scrolltimeout;
+			var privatescrolltimeout;
   		/* ############################################################################################################ */
 
 		/* Socket-Verbindung herstellen  */
@@ -257,7 +259,11 @@
 		        		if(connected){
 		        			jQuery('#messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+iArt_ChangeMarkup(msg.zeitpunkt, false)+') <img src="http://radio-emergency.de/img/user_'+iArt_ChangeMarkup(msg.sex, false)+'_'+iArt_ChangeMarkup(msg.istEinAdmin, false)+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
 		        			if(jumpToEnd){
-								jQuery('#iArt_chatMessageContMainChat').scrollTop(jQuery('#messages').outerHeight());
+								clearTimeout(scrolltimeout);
+								scrolltimeout = window.setTimeout(function(){
+									jQuery('#iArt_chatMessageContMainChat').animate({ scrollTop: (jQuery('#messages').outerHeight())}, 'slow');
+								}, 100);
+
 							}
 
 							if(privateChatting){
@@ -281,8 +287,6 @@
 	      		/* ============================================================================================  */
 		      		socket.on('privateMessage', function(msg){
 		        		if(connected){
-
-
 							if(jQuery('#iArt_userNameBackup').val() == msg.fuerden){
 								/* Ich bin der Empfaenger */
 								/* ============================================================================================  */
@@ -347,7 +351,10 @@
 									/* Nachricht in Chatfenster schreiben  */
 									/* -------------------------------------------------------------  */
 										jQuery('#iArt_privChat_'+mitdemda.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+iArt_ChangeMarkup(msg.zeitpunkt, false)+') <img src="http://radio-emergency.de/img/user_'+iArt_ChangeMarkup(msg.sex, false)+'_'+iArt_ChangeMarkup(msg.istEinAdmin, false)+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
-										jQuery('#iArt_privChat_'+mitdemda.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).scrollTop(jQuery('#iArt_privChat_'+mitdemda.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').outerHeight());
+										clearTimeout(privatescrolltimeout);
+										privatescrolltimeout = window.setTimeout(function(){
+											jQuery('#iArt_privChat_'+mitdemda.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).animate({ scrollTop: (jQuery('#iArt_privChat_'+mitdemda.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').outerHeight())}, 'slow');
+										},100);
 									/* -------------------------------------------------------------  */
 
 
@@ -370,7 +377,10 @@
 									/* Nachricht in Chatfenster schreiben  */
 									/* -------------------------------------------------------------  */
 										jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').append(jQuery('<div>').addClass('iArtChatMessageItem').html('('+iArt_ChangeMarkup(msg.zeitpunkt, false)+') <img src="http://radio-emergency.de/img/user_'+iArt_ChangeMarkup(msg.sex, false)+'_'+iArt_ChangeMarkup(msg.istEinAdmin, false)+'.png" /> '+iArt_ChangeMarkup(msg.username, false)+': <span style="color:'+iArt_ChangeMarkup(msg.farbe, false)+'; font-weight:'+iArt_ChangeMarkup(msg.weight, false)+'; font-style:'+iArt_ChangeMarkup(msg.style, false)+'">'+iArt_ChangeMarkup(msg.message, true)+'</span>'));
-										jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).scrollTop(jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').outerHeight());
+										clearTimeout(privatescrolltimeout);
+										privatescrolltimeout = window.setTimeout(function(){
+											jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).animate({ scrollTop: (jQuery('#iArt_privChat_'+msg.fuerden.replace(/ /g, '_').replace(/[^a-z0-9A-Z_]/g, '-')).find('.messages').outerHeight())}, 'slow');
+										},100);
 									/* -------------------------------------------------------------  */
 
 								/* ============================================================================================  */
